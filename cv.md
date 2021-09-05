@@ -1,6 +1,6 @@
 ## Banenkov Maxim
 
-#### Contacts:
+#### Contacts
 
 * Email: bounderoll.23@gmail.com
 * Telegram: [bounderoll](https://t.me/bounderoll)
