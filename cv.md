@@ -27,3 +27,88 @@ desire to grow, develop and move forward not only the computer mouse, but also t
 * Git (basic), GitHub
 * Soft: Visual Studio Code, WebStorm
 * DB: MongoDB (basic)
+
+#### Code example
+
+```typescript
+interface TweetProps {
+    _id: string
+    text: string
+    createdAt: string
+    images?: string[]
+    user: {
+        fullname: string
+        username: string
+        avatarUrl: string
+    }
+}
+
+export const Tweet: React.FC<TweetProps> = ({_id, text, user, createdAt, images}: TweetProps): React.ReactElement => {
+    const dispatch = useDispatch()
+    const classes = useStylesHome()
+    const history = useHistory()
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+    const open = Boolean(anchorEl)
+
+    const handleClickTweet = (e: React.MouseEvent<HTMLAnchorElement>): void => {
+        e.preventDefault()
+        history.push(`/home/tweet/${_id}`)
+    }
+
+    const handleClick = (e: React.MouseEvent<HTMLElement>): void => {
+        e.stopPropagation()
+        e.preventDefault()
+        setAnchorEl(e.currentTarget)
+    }
+
+    const handleClose = (e: React.MouseEvent<HTMLElement>): void => {
+        e.stopPropagation()
+        e.preventDefault()
+        setAnchorEl(null)
+    }
+
+    const handleRemove = (e: React.MouseEvent<HTMLElement>): void => {
+        handleClose(e)
+        if (window.confirm('Вы действительно хотите удалить твит ?')) {
+            dispatch(removeTweet(_id))
+        }
+    }
+
+    return (
+        <a onClick={handleClickTweet} className={classes.tweetWrapper} href={`/home/tweet/${_id}`}>
+            <Paper className={classes.tweet} variant="outlined">
+                <Avatar className={classes.tweetAvatar}
+                        alt={`Аватар пользователя ${user.fullname}`}
+                        src={user.avatarUrl}
+                />
+                <div className={classes.tweetBody}>
+                    <div className={classes.tweetHeader}>
+                        <div>
+                            <b>{user.fullname}</b>&nbsp;
+                            <span className={classes.tweetUserName}>@{user.username}</span>&nbsp;
+                            <span className={classes.tweetUserName}>·</span>&nbsp;
+                            <span className={classes.tweetUserName}>{formatDate(new Date(createdAt))}</span>
+                        </div>
+                        <div>
+                            <IconButton aria-label="more"
+                                        aria-controls="long-menu"
+                                        aria-haspopup="true"
+                                        onClick={handleClick}>
+                                <MoreVertIcon/>
+                            </IconButton>
+                            <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+                                <MenuItem onClick={handleClose}>Редактировать</MenuItem>
+                                <MenuItem onClick={handleRemove}>Удалить твит</MenuItem>
+                            </Menu>
+                        </div>
+                    </div>
+                    <Typography variant='body1' className={classes.tweetText} gutterBottom>
+                        {text}
+                        {images && <ImageList images={images}/>}
+                    </Typography>
+                </div>
+            </Paper>
+        </a>
+    )
+}
+```
