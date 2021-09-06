@@ -120,3 +120,11 @@ export const Tweet: React.FC<TweetProps> = ({_id, text, user, createdAt, images}
 * 2021 (May 20) Digital wind "Thematic site" international stage 2nd place
 
 Projects implemented during training are in my [GitHub account](https://github.com/bndroll) 
+
+#### Education
+
+2020 I entered SSTU, Institute of Applied Information Technologies, currently I am a 2nd year student
+
+Courses
+* Udemy [React Native](https://www.udemy.com/course/react-native-complete-guide)
+* Udemy [JavaScript & React](https://www.udemy.com/course/javascript_full)
