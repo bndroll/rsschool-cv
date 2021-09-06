@@ -128,3 +128,7 @@ Projects implemented during training are in my [GitHub account](https://github.c
 Courses
 * Udemy [React Native](https://www.udemy.com/course/react-native-complete-guide)
 * Udemy [JavaScript & React](https://www.udemy.com/course/javascript_full)
+
+#### English
+
+A2+
