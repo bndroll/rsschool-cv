@@ -113,3 +113,10 @@ export const Tweet: React.FC<TweetProps> = ({_id, text, user, createdAt, images}
     )
 }
 ```
+
+#### Experience
+
+* 2021 (August 20-22) Digital Breakthrough Hackathon "Creative Industries. Communications and Content" 14th place
+* 2021 (May 20) Digital wind "Thematic site" international stage 2nd place
+
+Projects implemented during training are in my [GitHub account](https://github.com/bndroll) 
