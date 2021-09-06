@@ -11,7 +11,8 @@
 
 My goal in learning programming is to gain the necessary skills to provide two priorities that are important to me,
 these are freedom and the ability to implement. I have no experience of working in companies, but I definitely have a
-desire to grow, develop and move forward not only the computer mouse, but also the technological world.
+desire to grow, develop and move forward not only the computer mouse, but also the technological world. As my positive
+traits, I can single out the ability to solve problems on my own, soft skills and an endless desire to move up
 
 #### Skills
 
@@ -75,40 +76,62 @@ export const Tweet: React.FC<TweetProps> = ({_id, text, user, createdAt, images}
     }
 
     return (
-        <a onClick={handleClickTweet} className={classes.tweetWrapper} href={`/home/tweet/${_id}`}>
-            <Paper className={classes.tweet} variant="outlined">
-                <Avatar className={classes.tweetAvatar}
-                        alt={`Аватар пользователя ${user.fullname}`}
-                        src={user.avatarUrl}
-                />
-                <div className={classes.tweetBody}>
-                    <div className={classes.tweetHeader}>
-                        <div>
-                            <b>{user.fullname}</b>&nbsp;
-                            <span className={classes.tweetUserName}>@{user.username}</span>&nbsp;
-                            <span className={classes.tweetUserName}>·</span>&nbsp;
-                            <span className={classes.tweetUserName}>{formatDate(new Date(createdAt))}</span>
-                        </div>
-                        <div>
-                            <IconButton aria-label="more"
-                                        aria-controls="long-menu"
-                                        aria-haspopup="true"
-                                        onClick={handleClick}>
-                                <MoreVertIcon/>
-                            </IconButton>
-                            <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-                                <MenuItem onClick={handleClose}>Редактировать</MenuItem>
-                                <MenuItem onClick={handleRemove}>Удалить твит</MenuItem>
-                            </Menu>
-                        </div>
-                    </div>
-                    <Typography variant='body1' className={classes.tweetText} gutterBottom>
-                        {text}
-                        {images && <ImageList images={images}/>}
-                    </Typography>
-                </div>
-            </Paper>
-        </a>
-    )
+        <a onClick = {handleClickTweet}
+    className = {classes.tweetWrapper}
+    href = {`/home/tweet/${_id}`
+}>
+    <Paper className = {classes.tweet}
+    variant = "outlined" >
+    <Avatar className = {classes.tweetAvatar}
+    alt = {`Аватар пользователя ${user.fullname}`
 }
+    src = {user.avatarUrl}
+    />
+    < div
+    className = {classes.tweetBody} >
+    <div className = {classes.tweetHeader} >
+        <div>
+            <b>{user.fullname} < /b>&nbsp;
+        < span
+    className = {classes.tweetUserName} > @{user.username} < /span>&nbsp;
+        < span
+    className = {classes.tweetUserName} >·</span>&nbsp;
+    < span
+    className = {classes.tweetUserName} > {formatDate(new Date(createdAt)
+)
+}
+    </span>
+    < /div>
+    < div >
+    <IconButton aria - label = "more"
+    aria - controls = "long-menu"
+    aria - haspopup = "true"
+    onClick = {handleClick} >
+        <MoreVertIcon / >
+        </IconButton>
+        < Menu
+    anchorEl = {anchorEl}
+    open = {open}
+    onClose = {handleClose} >
+    <MenuItem onClick = {handleClose} > Редактировать < /MenuItem>
+        < MenuItem
+    onClick = {handleRemove} > Удалить
+    твит < /MenuItem>
+    < /Menu>
+    < /div>
+    < /div>
+    < Typography
+    variant = 'body1'
+    className = {classes.tweetText}
+    gutterBottom >
+    {text}
+    {
+        images && <ImageList images = {images}
+        />}
+        < /Typography>
+        < /div>
+        < /Paper>
+        < /a>
+    )
+    }
 ```
