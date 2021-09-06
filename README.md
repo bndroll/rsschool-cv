@@ -1,1 +1,0 @@
-cv: [click me](https://bndroll.github.io/rsschool-cv/cv)
