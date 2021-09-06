@@ -31,7 +31,7 @@ traits, I can single out the ability to solve problems on my own, soft skills an
 
 #### Code example
 
-```typescript
+```
 interface TweetProps {
     _id: string
     text: string
@@ -76,62 +76,40 @@ export const Tweet: React.FC<TweetProps> = ({_id, text, user, createdAt, images}
     }
 
     return (
-        <a onClick = {handleClickTweet}
-    className = {classes.tweetWrapper}
-    href = {`/home/tweet/${_id}`
-}>
-    <Paper className = {classes.tweet}
-    variant = "outlined" >
-    <Avatar className = {classes.tweetAvatar}
-    alt = {`Аватар пользователя ${user.fullname}`
-}
-    src = {user.avatarUrl}
-    />
-    < div
-    className = {classes.tweetBody} >
-    <div className = {classes.tweetHeader} >
-        <div>
-            <b>{user.fullname} < /b>&nbsp;
-        < span
-    className = {classes.tweetUserName} > @{user.username} < /span>&nbsp;
-        < span
-    className = {classes.tweetUserName} >·</span>&nbsp;
-    < span
-    className = {classes.tweetUserName} > {formatDate(new Date(createdAt)
-)
-}
-    </span>
-    < /div>
-    < div >
-    <IconButton aria - label = "more"
-    aria - controls = "long-menu"
-    aria - haspopup = "true"
-    onClick = {handleClick} >
-        <MoreVertIcon / >
-        </IconButton>
-        < Menu
-    anchorEl = {anchorEl}
-    open = {open}
-    onClose = {handleClose} >
-    <MenuItem onClick = {handleClose} > Редактировать < /MenuItem>
-        < MenuItem
-    onClick = {handleRemove} > Удалить
-    твит < /MenuItem>
-    < /Menu>
-    < /div>
-    < /div>
-    < Typography
-    variant = 'body1'
-    className = {classes.tweetText}
-    gutterBottom >
-    {text}
-    {
-        images && <ImageList images = {images}
-        />}
-        < /Typography>
-        < /div>
-        < /Paper>
-        < /a>
+        <a onClick={handleClickTweet} className={classes.tweetWrapper} href={`/home/tweet/${_id}`}>
+            <Paper className={classes.tweet} variant="outlined">
+                <Avatar className={classes.tweetAvatar}
+                        alt={`Аватар пользователя ${user.fullname}`}
+                        src={user.avatarUrl}
+                />
+                <div className={classes.tweetBody}>
+                    <div className={classes.tweetHeader}>
+                        <div>
+                            <b>{user.fullname}</b>&nbsp;
+                            <span className={classes.tweetUserName}>@{user.username}</span>&nbsp;
+                            <span className={classes.tweetUserName}>·</span>&nbsp;
+                            <span className={classes.tweetUserName}>{formatDate(new Date(createdAt))}</span>
+                        </div>
+                        <div>
+                            <IconButton aria-label="more"
+                                        aria-controls="long-menu"
+                                        aria-haspopup="true"
+                                        onClick={handleClick}>
+                                <MoreVertIcon/>
+                            </IconButton>
+                            <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+                                <MenuItem onClick={handleClose}>Редактировать</MenuItem>
+                                <MenuItem onClick={handleRemove}>Удалить твит</MenuItem>
+                            </Menu>
+                        </div>
+                    </div>
+                    <Typography variant='body1' className={classes.tweetText} gutterBottom>
+                        {text}
+                        {images && <ImageList images={images}/>}
+                    </Typography>
+                </div>
+            </Paper>
+        </a>
     )
-    }
+}
 ```
